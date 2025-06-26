@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amalan Air Susu Putih - Pondok Queen Ainul Yaqien (Versi 2)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet"> <!-- For Arabic script -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"> <!-- For main titles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Deeper, richer green background with a subtle pattern/texture feel */
+            background: linear-gradient(135deg, #e0f7fa 0%, #c8e6c9 50%, #b3e0b5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem; /* More generous padding */
+            color: #374151;
+            overflow-x: hidden;
+        }
+        .main-wrapper {
+            max-width: 950px; /* Slightly wider overall container */
+            width: 100%;
+            border-radius: 2.5rem; /* Even more rounded */
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+            background-color: #ffffff;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSlideUp 1s ease-out forwards; /* Slower, smoother animation */
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(to right, #00796b, #4db6ac); /* Teal-like gradient */
+            padding: 2rem 2.5rem; /* Larger padding */
+            display: flex;
+            flex-direction: column; /* Stack logo on top of text */
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+            z-index: 10;
+            text-align: center; /* Center align header content */
+        }
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 1rem; /* Space between top row and main title */
+            align-items: center;
+        }
+        .header-logo-container {
+            margin-bottom: 0.5rem; /* Space between logo image and text */
+        }
+        .header-logo-container img {
+            width: 100px; /* Adjust logo size as needed */
+            height: auto;
+            border-radius: 0.75rem; /* Slightly rounded corners for the logo image */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for the logo */
+            display: block; /* Remove extra space below image */
+            margin: 0 auto; /* Center the image */
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem; /* Larger main title */
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: transform 0.3s ease;
+            margin-top: 1rem; /* Space from actual logo image */
+        }
+        .logo-text:hover {
+            transform: translateX(0); /* No translation hover for main title */
+        }
+        .faedah-text {
+            font-size: 1.125rem; /* Smaller for faedah text */
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Default to single column */
+            gap: 2.5rem; /* More space between sections */
+            padding: 3rem; /* Generous padding for the grid area */
+        }
+        @media (min-width: 768px) { /* Two columns on larger screens */
+            .content-grid {
+                grid-template-columns: 2fr 1fr; /* Main content wider than sidebar */
+                gap: 3rem;
+            }
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .section-card {
+            background-color: #f9fafb; /* Light gray background for cards */
+            border-radius: 1.25rem; /* Rounded corners for cards */
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Card shadow */
+            border: 1px solid #e0f2f7; /* Subtle card border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-5px); /* Lift card on hover */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif; /* Elegant serif font for title */
+            color: #004d40; /* Darker, sophisticated green */
+            font-size: 3.5rem; /* Even larger title */
+            font-weight: 900; /* Extra bold */
+            text-align: center;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .article-subtitle {
+            font-family: 'Playfair Display', serif;
+            color: #26a69a; /* Brighter teal for subtitle */
+            font-size: 1.75rem; /* Larger subtitle */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-heading {
+            font-weight: 800; /* Bolder heading */
+            color: #00695c; /* Very dark green for headings */
+            font-size: 1.5rem; /* Larger section headings */
+            margin-bottom: 1.25rem;
+            position: relative;
+            padding-left: 1.5rem; /* Space for accent line */
+            border-bottom: 2px solid #b2dfdb; /* Subtle underline effect */
+            padding-bottom: 0.5rem; /* Space below underline */
+        }
+        .section-heading::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #4db6ac; /* Accent color dot */
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(77, 182, 172, 0.6); /* Glow effect */
+        }
+
+        .article-paragraph {
+            font-size: 1.1rem; /* Slightly refined text size */
+            line-height: 1.8;
+            color: #546e7a; /* Muted gray for body text */
+            margin-bottom: 1rem;
+        }
+        .article-paragraph strong {
+            color: #00796b; /* Strong emphasis color */
+            font-weight: 700;
+        }
+
+        .arabic-text-container {
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .arabic-text-large {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem; /* Prominent Arabic text */
+            font-weight: 700;
+            color: #004d40; /* Darker green for Arabic */
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+        .arabic-text-large:hover {
+            color: #00897b; /* Slightly lighter on hover */
+        }
+        .arabic-translation {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: #78909c; /* Muted gray for translation */
+            margin-top: 0.5rem;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            color: #546e7a;
+        }
+        .list-item svg {
+            flex-shrink: 0;
+            margin-right: 0.75rem;
+            color: #4db6ac; /* Green checkmark */
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .image-container {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.4s ease;
+        }
+        .image-container:hover {
+            transform: scale(1.01); /* Subtle zoom on hover */
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .callout-box-v2 {
+            background: linear-gradient(45deg, #e0f2f7, #b2ebf2); /* Blueish-green gradient for distinction */
+            border: 1px solid #80deea;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            font-style: italic;
+            color: #006064; /* Dark teal */
+            font-weight: 600;
+            box-shadow: inset 0 0 15px rgba(0, 150, 136, 0.2); /* Inner glow */
+            position: relative;
+            overflow: hidden;
+        }
+        .callout-box-v2::before, .callout-box-v2::after {
+            content: '“';
+            position: absolute;
+            font-size: 5rem; /* Larger quotes */
+            color: rgba(0, 150, 136, 0.1); /* Lighter teal for quotes */
+            line-height: 1;
+        }
+        .callout-box-v2::before { top: -0.5rem; left: 1rem; }
+        .callout-box-v2::after { bottom: -0.5rem; right: 1rem; }
+
+
+        .footer {
+            background-color: #004d40; /* Very dark green footer */
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 2.5rem; /* Matches main container */
+            margin-top: 2.5rem;
+            width: 100%;
+            max-width: 950px;
+            box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.15);
+        }
+        .footer a {
+            color: #80cbc4; /* Lighter teal for footer links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #b2dfdb;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            body { padding: 1.5rem; }
+            .main-wrapper { border-radius: 1.5rem; }
+            .header { padding: 1.5rem 2rem; }
+            .logo-text { font-size: 1.3rem; }
+            .faedah-text { font-size: 1rem; }
+            .article-title { font-size: 2.5rem; }
+            .article-subtitle { font-size: 1.3rem; }
+            .content-grid { padding: 2rem; gap: 2rem; }
+            .section-card { padding: 1.5rem; }
+            .section-heading { font-size: 1.3rem; }
+            .arabic-text-large { font-size: 2.2rem; }
+            .callout-box-v2 { padding: 1.5rem; }
+            .callout-box-v2::before, .callout-box-v2::after { font-size: 4rem; }
+            .footer { padding: 1.5rem; border-radius: 1.5rem; margin-top: 1.5rem; }
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            .main-wrapper { border-radius: 1rem; animation-delay: 0.1s; }
+            .header {
+                padding: 1rem 1.25rem;
+                flex-direction: column; /* Stack header items */
+                gap: 0.75rem;
+                text-align: center;
+            }
+            .header-top-row {
+                flex-direction: column; /* Stack logo/faedah text vertically */
+                margin-bottom: 0.5rem;
+                gap: 0.5rem;
+            }
+            .header-logo-container img {
+                width: 80px; /* Smaller logo on mobile */
+            }
+            .logo-text { font-size: 1.2rem; margin-top: 0.5rem; }
+            .faedah-text { font-size: 0.9rem; margin-bottom: 0.5rem; }
+            .article-title { font-size: 2rem; margin-bottom: 0.75rem; }
+            .article-subtitle { font-size: 1rem; margin-bottom: 1.5rem; }
+            .content-grid { padding: 1.5rem; gap: 1.5rem; }
+            .section-card { padding: 1.25rem; border-radius: 1rem; }
+            .section-heading { font-size: 1.1rem; padding-left: 1rem; }
+            .section-heading::before { width: 6px; height: 6px; }
+            .article-paragraph { font-size: 0.95rem; line-height: 1.6; }
+            .arabic-text-large { font-size: 1.8rem; }
+            .arabic-translation { font-size: 0.85rem; }
+            .callout-box-v2 { padding: 1.25rem; border-radius: 1rem; }
+            .callout-box-v2::before, .callout-box-v2::after { font-size: 3rem; }
+            .footer { padding: 1rem; border-radius: 1rem; margin-top: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-logo-container">
+                <!-- Actual logo image from uploaded file -->
+                <img
+                    src="https://placehold.co/100x100/ffffff/000000?text=Logo+Pondok+Queen"
+                    onerror="this.onerror=null;this.src='https://placehold.co/100x100/ffffff/000000?text=Logo+Pondok+Queen';"
+                    alt="Logo Pondok Pesantren Queen"
+                />
+            </div>
+            <h1 class="logo-text">Pondok Queen Ainul Yaqien</h1>
+            <div class="faedah-text">
+                <!-- Icon for Faedah Amalan (Reused) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+                <span>Faedah Amalan</span>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Main Content Column -->
+            <div class="main-content">
+                <h2 class="article-title">Amalan Minum Susu Putih di Malam 1 Muharram</h2>
+                <p class="article-subtitle">Tradisi Luhur dari Abuya Sayyid Muhammad Alawi Al Maliki</p>
+
+                <div class="section-card">
+                    <h3 class="section-heading">Pengantar Amalan</h3>
+                    <p class="article-paragraph">Pada malam 1 Muharram, kita memiliki tradisi minum susu putih yang sebelumnya diawali dengan berdoa. Amalan ini berasal dari tradisi Abuya Sayyid Muhammad Alawi Al Maliki, seorang ulama terkenal yang merupakan keturunan Rasulullah saw di tanah suci. Mengapa minum susu putih di malam 1 Muharram?</p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="section-heading">Makna dan Hikmah</h3>
+                    <p class="article-paragraph">Menurut Abuya Sayyid Muhammad Alawi Al Maliki, minum susu putih pada malam tersebut melambangkan <strong>permulaan tahun yang baru</strong>, yang bersih dan penuh dengan kebaikan. Susu putih, sebagai simbol kebersihan dan nutrisi, menjadi metafora untuk tahun yang putih, bersih, dan dipenuhi dengan kebaikan.</p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="section-heading">Cara Pengamalan</h3>
+                    <p class="article-paragraph">Untuk amalan minum susu putih ini dilakukan <strong>setelah Maghrib pada malam 1 Muharram hingga sebelum waktu Subuh</strong>. Caranya cukup sederhana:</p>
+                    <ul class="list-none mt-4">
+                        <li class="list-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Siapkan segelas susu hangat.</span>
+                        </li>
+                        <li class="list-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Lalu baca doa yang telah ditentukan sebelum meminumnya.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="image-container">
+                    <img
+                        src="https://placehold.co/600x400/c8e6c9/004d40?text=Minum%20Susu%20Kebaikan"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/c8e6c9/004d40?text=Gambar%20Tidak%20Tersedia';"
+                        alt="Gambar ilustrasi minum susu di malam Muharram"
+                    />
+                </div>
+
+            </div>
+
+            <!-- Sidebar Column -->
+            <div class="sidebar">
+                <div class="section-card">
+                    <h3 class="section-heading">Bacaan Doa</h3>
+                    <div class="arabic-text-container">
+                        <p class="arabic-text-large">اَللّٰهُمَّ بَارِكْ لَنَا فِيْهِ وَزِدْنَا مِنْهُ</p>
+                        <p class="arabic-translation">Artinya: "Ya Allah, berkahilah kami di dalam air susu ini dan tambahlah keberkahan darinya."</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="section-heading">Siapa yang Boleh Mengamalkan?</h3>
+                    <p class="article-paragraph">Amalan ini boleh dilakukan bersama <strong>keluarga, murid, santri dan masyarakat di sekitar kita</strong>. Sehingga semuanya dapat turut merasakan berkah yang sama. Hal ini juga yang dijalankan oleh Abuya Sayyid Muhammad Alawi Al Maliki kepada para santrinya.</p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="section-heading">Manfaat dan Harapan</h3>
+                    <p class="article-paragraph">Selain meminumnya, beliau juga membagikan susu putih kepada para santrinya. Melalui cara ini, beliau berharap para santrinya juga akan meraih berkah dan menjalani tahun yang akan datang dengan baik dan penuh keberkahan.</p>
+                    <p class="article-paragraph">Maka dari itu amalan minum susu putih di malam 1 Muharram beserta dengan doa, merupakan wujud <strong>tafa’ul</strong> atau mengharap kebaikan di tahun baru Islam, sebagaimana yang rutin dilakukan oleh Abuya Sayyid Muhammad Alawi Al Maliki.</p>
+                </div>
+
+                <!-- Inspirational Quote Callout -->
+                <div class="callout-box-v2">
+                    <p>"Jadikan setiap awal sebagai pintu menuju kebaikan yang lebih besar."</p>
+                    <p class="mt-2 text-sm">- Inspirasi dari Tradisi Shalihin</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Pondok Queen Ainul Yaqien. Hak Cipta Dilindungi.</p>
+        <p class="mt-2 text-sm">
+            Kontak: <a href="mailto:info@pondokainulyaqien.com">info@pondokainulyaqien.com</a> |
+            Telepon: (012) 345-6789
+        </p>
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="#" class="hover:underline">Facebook</a>
+            <a href="#" class="hover:underline">Instagram</a>
+            <a href="#" class="hover:underline">YouTube</a>
+        </div>
+    </footer>
+</body>
+</html>
+
